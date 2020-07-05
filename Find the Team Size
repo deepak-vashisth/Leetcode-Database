@@ -1,0 +1,31 @@
+select e.employee_id, s.team_size
+from employee e,
+
+(select team_id, count(team_id) as team_size
+from employee e 
+group by team_id) s
+
+where s.team_id=e.team_id
+
+
+/*
+
+Write an SQL query to find the team size of each of the employees.
+
+Return result table in any order.
+
+The query result format is in the following example:
+
+Employee Table:
++-------------+------------+
+| employee_id | team_id    |
++-------------+------------+
+|     1       |     8      |
+|     2       |     8      |
+|     3       |     8      |
+|     4       |     7      |
+|     5       |     9      |
+|     6       |     9      |
++-------------+------------+
+
+*/
